@@ -15,11 +15,11 @@
             <textarea 
             id="value" 
             rows="3"
-            v-model.trim="text"
+            v-model.trim="textItem"
             ></textarea>
         </div>
 
-        <button type="submit" class="btn primary">Добавить</button>
+        <button type="submit" class="btn primary" :disabled="textItem.length === 0" >Добавить</button>
     </form>
 </template>
 
@@ -34,14 +34,17 @@ export default {
     data() {
         return {
             type: 'title',
-            text: '',
+            type: 'subtitle',
+            type: 'avatar',
+            type: 'text',
+            textItem: '',
         }
     },
 
     methods: {
         submitHandler(event) {
             console.group('Text for summary')
-            console.log('Text:', this.text);
+            console.log('Text:', this.type);
             console.groupEnd()
         },
         newItem() {
